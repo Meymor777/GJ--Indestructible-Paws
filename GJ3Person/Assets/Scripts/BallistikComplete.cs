@@ -10,7 +10,6 @@ public class BallistikComplete : MonoBehaviour
     public float AngleInDegrees;
     private int timeshot = 0;
 
-    // Update is called once per frame
     void Update()
     {
         if (timeshot == 1000)

@@ -16,7 +16,7 @@ public class Ballistick : MonoBehaviour
     void Update()
     {
 
-        if (timeshot == 500)
+        if (timeshot == 1)
         {
             timeshot = 0;
             AngleTransform.localEulerAngles = new Vector3(0f, 0f, -AngleInDegrees);

@@ -14,7 +14,7 @@ public class TrigerGround : MonoBehaviour
         textScore.text = System.Convert.ToString(score);
         if (score == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 

@@ -12,9 +12,10 @@ public class OnTrigerBomb : MonoBehaviour
         {
             OnDestroy();
         }
-        else if(collision.gameObject.name == "PVORocket")
+        else if(collision.gameObject.name.Contains("PVOShoot"))
         {
-
+            Debug.Log("Popadanie!!!!!!!");
+            OnDestroy();
         }
         else
         {

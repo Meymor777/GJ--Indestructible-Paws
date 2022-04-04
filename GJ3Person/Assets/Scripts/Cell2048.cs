@@ -14,8 +14,9 @@ public class Cell2048 : MonoBehaviour
     public int Points => IsEmpty ? 0 : (int)Mathf.Pow(2, Value);
 
     public bool IsEmpty => Value == 0 ;
+    public bool HasMerged { get; private set; }
 
-    public const int MaxValue = 4;
+    public const int MaxValue = 5;
 
     [SerializeField]
     private Image image;
@@ -28,6 +29,32 @@ public class Cell2048 : MonoBehaviour
         Y = y;
         Value = value;
 
+        UpdateCell();
+    }
+
+    public void InreaseValue()
+    {
+        Value++;
+        HasMerged = true;
+
+        UpdateCell();
+    }
+
+    public void ResetFlags()
+    {
+        HasMerged = false;
+    }
+
+    public void MergeWithCell( Cell2048 otherCell)
+    {
+        otherCell.InreaseValue();
+        SetValue(X, Y, 0); 
+        UpdateCell();
+    }
+    public void MoveToCell(Cell2048 target)
+    {
+        target.SetValue(target.X, target.Y, Value);
+        SetValue(X, Y, 0);
         UpdateCell();
     }
 

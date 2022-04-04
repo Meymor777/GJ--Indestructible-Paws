@@ -5,9 +5,8 @@ using UnityEngine;
 public class BallistikComplete : MonoBehaviour
 {
     public GameObject Bomb;
-    public float ForceLaunch;
+    public Transform StartBullet;
     public Transform AngleTransform;
-    public float AngleInDegrees;
     private int timeshot = 0;
 
     void Update()
@@ -15,7 +14,6 @@ public class BallistikComplete : MonoBehaviour
         if (timeshot == 500)
         {
             timeshot = 0;
-            AngleTransform.localEulerAngles = new Vector3(0f, 0f, -AngleInDegrees);
             Shoot();
         }
         else
@@ -25,8 +23,8 @@ public class BallistikComplete : MonoBehaviour
     public void Shoot()
     {
       
-        AngleTransform.localEulerAngles = new Vector3(0f, 0f, -Random.Range(45f, 80f));
-        GameObject BombIns = Instantiate(Bomb, AngleTransform.position, AngleTransform.rotation);
-        BombIns.GetComponent<Rigidbody2D>().velocity = -AngleTransform.right * ForceLaunch;
+        AngleTransform.localEulerAngles = new Vector3(0f, 0f, -Random.Range(30f, 70f));
+        GameObject BombIns = Instantiate(Bomb, StartBullet.position, AngleTransform.rotation);
+        BombIns.GetComponent<Rigidbody2D>().velocity = -AngleTransform.right * 10f;
     }
 }

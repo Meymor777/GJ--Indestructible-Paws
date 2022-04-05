@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OnTrigeEnemy : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class OnTrigeEnemy : MonoBehaviour
             textScore.text = System.Convert.ToString(score);
             if (score == 0)
             {
-              //WinGame
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             Destroy(collision.gameObject);
         }

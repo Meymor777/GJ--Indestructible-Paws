@@ -205,14 +205,17 @@ public class Field2048 : MonoBehaviour
         {
             for (int y = 0; y < FieldSize; y++)
             {
-                emptyCells.Add(field[x, y]);
+                if(field[x, y].IsEmpty)
+                {
+                    emptyCells.Add(field[x, y]);
+                }
             }
         }
 
         if (emptyCells.Count == 0)
             throw new System.Exception("There is no any empty cell!");
 
-        int value = Random.Range(0, 5) == 0 ? 2 : 1;
+        int value = Random.Range(0, 10) == 0 ? 2 : 1;
 
         var cell = emptyCells[Random.Range(0, emptyCells.Count)];
         cell.SetValue(cell.X, cell.Y, value);

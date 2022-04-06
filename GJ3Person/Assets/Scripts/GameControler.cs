@@ -33,7 +33,7 @@ public class GameControler : MonoBehaviour
     public void Lose()
     {
         GameStarted = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(3);
     }
 
 }

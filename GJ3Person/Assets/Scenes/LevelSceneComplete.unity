@@ -3300,6 +3300,10 @@ PrefabInstance:
       value: PVO
       objectReference: {fileID: 0}
     - target: {fileID: 8972508211004883839, guid: 1f84cc5ec654da546ab4e8dba07d1deb, type: 3}
+      propertyPath: PVOShoot
+      value: 
+      objectReference: {fileID: 6468422562920064287, guid: 1df63ca96b90c894d8e9a1f455fd7260, type: 3}
+    - target: {fileID: 8972508211004883839, guid: 1f84cc5ec654da546ab4e8dba07d1deb, type: 3}
       propertyPath: maincamera
       value: 
       objectReference: {fileID: 519420031}

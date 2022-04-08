@@ -11,7 +11,7 @@ public class BallistikComplete : MonoBehaviour
 
     void Update()
     {
-        if (timeshot == 300)
+        if (timeshot == 200)
         {
             timeshot = 0;
             Shoot();

@@ -218,8 +218,9 @@ public class Field2048 : MonoBehaviour
         int value = Random.Range(0, 10) == 0 ? 2 : 1;
 
         var cell = emptyCells[Random.Range(0, emptyCells.Count)];
-        cell.SetValue(cell.X, cell.Y, value);
+        cell.SetValue(cell.X, cell.Y, value, false);
 
+        CellAnimationController.Instance.SmoothAppear(cell);
     }
 
     private void ResetCellFlags()

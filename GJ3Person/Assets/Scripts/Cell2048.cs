@@ -23,13 +23,15 @@ public class Cell2048 : MonoBehaviour
     [SerializeField]
     private Text points;
 
-    public void SetValue(int x, int y, int value)
+    private CellAnimation currentAnimation;
+    public void SetValue(int x, int y, int value, bool updateUI = true)
     {
         X = x;
         Y = y;
         Value = value;
 
-        UpdateCell();
+        if(updateUI)
+            UpdateCell();
     }
 
     public void InreaseValue()
@@ -37,7 +39,7 @@ public class Cell2048 : MonoBehaviour
         Value++;
         HasMerged = true;
 
-        UpdateCell();
+       // UpdateCell();
     }
 
     public void ResetFlags()
@@ -47,15 +49,18 @@ public class Cell2048 : MonoBehaviour
 
     public void MergeWithCell( Cell2048 otherCell)
     {
+
+        CellAnimationController.Instance.SmoothTransiction(this, otherCell, true);
         otherCell.InreaseValue();
         SetValue(X, Y, 0); 
-        UpdateCell();
+        //UpdateCell();
     }
     public void MoveToCell(Cell2048 target)
     {
-        target.SetValue(target.X, target.Y, Value);
+        CellAnimationController.Instance.SmoothTransiction(this, target, false);
+        target.SetValue(target.X, target.Y, Value, false);
         SetValue(X, Y, 0);
-        UpdateCell();
+       // UpdateCell();
     }
 
     public void UpdateCell()
@@ -63,5 +68,17 @@ public class Cell2048 : MonoBehaviour
         points.text = IsEmpty ? string.Empty : Points.ToString();
 
         image.sprite = ImageManager.Instante.CellImages[Value];
+    }
+
+
+    public void SetAnimation(CellAnimation animation)
+    {
+        currentAnimation = animation;
+    }
+
+    public void CancelAnimation()
+    {
+        if (currentAnimation != null)
+            currentAnimation.Desstroy();
     }
 }

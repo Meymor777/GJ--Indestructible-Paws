@@ -9,4 +9,9 @@ public class FinishGame : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void GameWin()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

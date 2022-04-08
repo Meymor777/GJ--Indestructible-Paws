@@ -6,6 +6,9 @@ public class OnTrigerPVOShhot : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        if(!collision.gameObject.name.Contains("PVOShoot"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
